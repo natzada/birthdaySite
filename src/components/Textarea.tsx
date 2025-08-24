@@ -1,6 +1,6 @@
 const TextArea: React.FC = () => {
   return (
-    <div className="p-5 bg-white rounded-lg shadow-md w-full max-w-2xl text-center">
+    <div className="p-5 bg-white/80 rounded-lg shadow-md w-full max-w-2xl text-center">
       <p>Amor,
     <br /> <br />
 Hoje não é só mais um dia… é o SEU dia, o aniversário do homem que mudou a minha vida de um jeito que eu nem consigo explicar. Feliz 27 anos, vida! Que sorte a minha poder comemorar essa data tão especial ao seu lado, te enchendo de amor e vendo de perto o quanto você é incrível.

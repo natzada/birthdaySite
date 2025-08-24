@@ -1,13 +1,29 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
-// Array de mídias (fotos e vídeos)
-const media = Array.from({ length: 10 }, (_, i) => ({
-  src: i % 2 === 0 
-    ? `/assets/images/photo-${i + 1}.jpg` 
-    : `/assets/videos/video-${Math.floor(i / 2) + 1}.mp4`, // Alterna entre fotos e vídeos
-  alt: i % 2 === 0 ? `Foto ${i + 1}` : `Vídeo ${Math.floor(i / 2) + 1}`,
-  type: i % 2 === 0 ? "image" : "video", // Define o tipo de mídia
-}));
+// Importação dos assets (ajuste os caminhos conforme necessário)
+import photo1 from "../assets/image/photo-1.jpeg";
+import video1 from "../assets/videos/video-1.mp4";
+import video2 from "../assets/videos/video-2.mp4";
+import photo2 from "../assets/image/photo-2.jpeg";
+import video3 from "../assets/videos/video-3.mp4";
+import photo3 from "../assets/image/photo-3.jpeg";
+import video4 from "../assets/videos/video-4.mp4";
+import photo4 from "../assets/image/photo-4.jpeg";
+import photo5 from "../assets/image/photo-5.jpeg";
+import photo6 from "../assets/image/photo-6.jpeg";
+
+const media = [
+  { src: photo1, alt: "Foto 1", type: "image" },
+  { src: photo2, alt: "Foto 2", type: "image" },
+  { src: video1, alt: "Vídeo 1", type: "video" },
+  { src: photo3, alt: "Foto 3", type: "image" },
+  { src: video2, alt: "Vídeo 2", type: "video" },
+  { src: photo4, alt: "Foto 4", type: "image" },
+  { src: video3, alt: "Vídeo 3", type: "video" },
+  { src: photo5, alt: "Foto 5", type: "image" },
+  { src: video4, alt: "Vídeo 4", type: "video" },
+  { src: photo6, alt: "Foto 6", type: "image" },
+];
 
 const Carousel: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState<number>(0);
@@ -20,14 +36,28 @@ const Carousel: React.FC = () => {
     setCurrentIndex((prev) => (prev < media.length - 1 ? prev + 1 : 0));
   };
 
+  useEffect(() => {
+    const videos = document.querySelectorAll("video");
+    videos.forEach((video, index) => {
+      if (index === currentIndex) {
+        video.play().catch(() => {});
+      } else {
+        video.pause();
+      }
+    });
+  }, [currentIndex]);
+
   return (
     <div className="relative w-full max-w-[280px] sm:max-w-[320px] h-[350px] sm:h-[400px] overflow-hidden mb-5">
       <div
-        className="flex transition-transform duration-500"
-        style={{ transform: `translateX(-${currentIndex * 300}px)` }}
+        className="flex transition-transform duration-500 ease-in-out"
+        style={{ transform: `translateX(-${currentIndex * 100}%)` }}
       >
         {media.map((item, index) => (
-          <div key={index} className="w-full max-w-[280px] sm:max-w-[320px] h-[350px] sm:h-[400px] flex-shrink-0">
+          <div
+            key={index}
+            className="w-full max-w-[280px] sm:max-w-[320px] h-[350px] sm:h-[400px] flex-shrink-0"
+          >
             {item.type === "image" ? (
               <img
                 src={item.src}

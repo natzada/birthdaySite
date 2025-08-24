@@ -12,7 +12,7 @@ const MusicPlayer: React.FC<MusicPlayerProps> = ({
   audioSrc,
 }) => {
   return (
-    <div className="flex flex-col sm:flex-row items-center bg-red-900 bg-opacity-50 p-3 rounded-lg w-full max-w-full sm:max-w-2xl mb-5 shadow-md">
+    <div className="flex flex-col sm:flex-row items-center bg-red-900 bg-opacity-30 p-3 rounded-lg w-full max-w-full sm:max-w-2xl mb-5 shadow-md">
       <img
         src={albumCover}
         alt="Capa do Álbum"

@@ -20,12 +20,12 @@ const Content: React.FC = () => {
     return <Loader />;
   }
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-black-red p-4 sm:p-6">
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-b from-black to-red-950 p-4 sm:p-6">
       <MusicPlayer
         trackTitle="Aliança"
         artistName="Tribalistas"
-        albumCover="/assets/image/capa.jpeg"
-        audioSrc="/assets/audio/Aliança-Tribalistas.mp3"
+        albumCover="src/assets/image/capa.jpeg"
+        audioSrc="src/assets/audio/Aliança-Tribalistas.mp3"
       />
       <Carousel />
       <Countdown />
