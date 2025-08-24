@@ -4,6 +4,8 @@ import Carousel from "./Carousel.tsx";
 import Countdown from "./Countdown.tsx";
 import TextArea from "./Textarea.tsx";
 import Loader from "./Loader.tsx";
+import Music from "../assets/audio/Aliança-Tribalistas.mp3"
+import AlbumCover from "../assets/image/capa.jpeg"
 
 const Content: React.FC = () => {
   const [isLoading, setIsLoading] = useState<boolean>(true);
@@ -24,8 +26,8 @@ const Content: React.FC = () => {
       <MusicPlayer
         trackTitle="Aliança"
         artistName="Tribalistas"
-        albumCover="src/assets/image/capa.jpeg"
-        audioSrc="src/assets/audio/Aliança-Tribalistas.mp3"
+        albumCover={Music}
+        audioSrc={AlbumCover}
       />
       <Carousel />
       <Countdown />
