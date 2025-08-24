@@ -99,7 +99,7 @@ const Content: React.FC = () => {
   }
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-black-red p-4 sm:p-6">
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-b from-black to-red-950 p-4 sm:p-6">
       <MusicPlayer
         trackTitle="Aliança"
         artistName="Tribalistas"
